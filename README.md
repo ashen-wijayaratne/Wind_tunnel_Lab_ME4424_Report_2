@@ -25,16 +25,13 @@ This repository contains a comprehensive suite of Python scripts designed for an
 #### linear_regression_solver.py
 
 - Performs advanced regression analysis on aerodynamic data
-- Calculates and visualizes lift curve slopes for both 2D and 3D configurations
 - Determines aerodynamic center locations through moment coefficient analysis
-- Generates statistical correlations between various aerodynamic parameters
 
 #### momentum_velocity_profile_solver.py
 
 - Implements the momentum integral equation for drag calculation
 - Processes wake velocity profiles using trapezoidal numerical integration
-- Compares momentum-based drag with direct force measurements
-- Accounts for wind tunnel corrections and measurement uncertainties
+
 
 #### NACA_data_extractor.py
 
@@ -45,10 +42,8 @@ This repository contains a comprehensive suite of Python scripts designed for an
 
 #### NACA_matching.py
 
-- Implements pattern matching algorithms to identify unknown airfoil profiles
+- Implements the Root Mean Square Error method for matching algorithms to identify unknown airfoil profiles.
 - Compares experimental data against comprehensive NACA database
-- Utilizes multiple comparison metrics (lift slope, drag polar, moment characteristics)
-- Provides confidence metrics for airfoil identification
 
 ### Data Files
 
@@ -58,22 +53,6 @@ This repository contains a comprehensive suite of Python scripts designed for an
   - Flow conditions (velocity, pressure, temperature)
   - Geometric parameters (angle of attack, configuration details)
 
-### Output Data
-
-#### regression_plots/
-
-- Contains visualization of key aerodynamic parameters:
-  - Lift coefficient vs angle of attack
-  - Drag polar curves
-  - Moment coefficient relationships
-  - Reynolds number effect studies
-
-#### xfoil_comprehensive_outputs/
-
-- Sample subset of XFOIL analysis results including:
-  - Pressure distribution data
-  - Boundary layer parameters
-  - Performance polars at various Reynolds numbers
 
 ## Features
 
@@ -100,15 +79,6 @@ This repository contains a comprehensive suite of Python scripts designed for an
 - Wing Area: 0.12425 m²
 - Aspect Ratio (3D): 4.057
 - Oswald Efficiency: 0.932
-
-## Analysis Results
-
-The code has successfully analyzed:
-
-- Drag coefficients through direct and indirect measurements
-- 2D vs 3D airfoil performance comparisons
-- Aerodynamic center locations for different experimental configurations
-- Reynolds number effects on aerodynamic characteristics
 
 ## Prerequisites
 
