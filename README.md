@@ -1,22 +1,79 @@
 # Aerodynamics Lab Data Analysis Tools
 
-This repository contains a collection of Python scripts and data files used to analyze wind tunnel test data for a NACA airfoil study. The analysis includes comparisons of 2D and 3D airfoil performance, drag measurements, and stability characteristics calculations.
+This repository contains a comprehensive suite of Python scripts designed for analyzing wind tunnel test data of NACA airfoils. The toolset enables detailed analysis of aerodynamic characteristics, including lift and drag measurements, stability parameters, and performance comparisons between 2D and 3D configurations.
 
 ## Project Structure
 
 ```
-├── python_solvers
-│   ├── linear_regression_solver.py       # Performs linear regression analysis on airfoil data
-│   ├── momentum_velocity_profile_solver.py # Calculates drag using momentum equation and wake profiles
-│   ├── NACA_data_extractor.py           # Extracts data from NACA airfoil databases
-│   └── NACA_matching.py                  # Matches experimental data with NACA airfoil profiles
-├── supporting_CSVs
-│   ├── input_velocity_profile.csv        # Velocity profile measurements
-│   └── intial_LabData.csv               # Raw experimental measurements
-├── Output Data
-│   ├── regression_plots/                 # Generated regression analysis plots
-│   └── xfoil_comprehensive_outputs/      # XFOIL analysis results and polar data - only a sample of the data included since output is large
+├── python_solvers/
+│   ├── linear_regression_solver.py       # Linear regression analysis for aerodynamic coefficients
+│   ├── momentum_velocity_profile_solver.py # Wake analysis and momentum-based drag calculations
+│   ├── NACA_data_extractor.py           # XFOIL data parser for NACA airfoil databases
+│   └── NACA_matching.py                  # Automated NACA airfoil profile identification
+├── supporting_CSVs/
+│   ├── input_velocity_profile.csv        # Velocity wake profile measurements
+│   └── intial_LabData.csv               # Raw wind tunnel experimental data
+├── Output Data/
+│   ├── regression_plots/                 # Generated analysis visualizations
+│   └── xfoil_comprehensive_outputs/      # Sample XFOIL analysis results (subset of full data)
 ```
+
+## Detailed Component Description
+
+### Python Solvers
+
+#### linear_regression_solver.py
+
+- Performs advanced regression analysis on aerodynamic data
+- Calculates and visualizes lift curve slopes for both 2D and 3D configurations
+- Determines aerodynamic center locations through moment coefficient analysis
+- Generates statistical correlations between various aerodynamic parameters
+
+#### momentum_velocity_profile_solver.py
+
+- Implements the momentum integral equation for drag calculation
+- Processes wake velocity profiles using trapezoidal numerical integration
+- Compares momentum-based drag with direct force measurements
+- Accounts for wind tunnel corrections and measurement uncertainties
+
+#### NACA_data_extractor.py
+
+- Interfaces with XFOIL to generate theoretical airfoil data
+- Extracts performance polars for various Reynolds numbers
+- Processes and formats XFOIL output for comparison with experimental data
+- Handles batch processing of multiple NACA profiles
+
+#### NACA_matching.py
+
+- Implements pattern matching algorithms to identify unknown airfoil profiles
+- Compares experimental data against comprehensive NACA database
+- Utilizes multiple comparison metrics (lift slope, drag polar, moment characteristics)
+- Provides confidence metrics for airfoil identification
+
+### Data Files
+
+- **input_velocity_profile.csv**: Contains detailed wake velocity measurements at various angles of attack
+- **intial_LabData.csv**: Raw experimental measurements including:
+  - Force balance readings (lift, drag, moment)
+  - Flow conditions (velocity, pressure, temperature)
+  - Geometric parameters (angle of attack, configuration details)
+
+### Output Data
+
+#### regression_plots/
+
+- Contains visualization of key aerodynamic parameters:
+  - Lift coefficient vs angle of attack
+  - Drag polar curves
+  - Moment coefficient relationships
+  - Reynolds number effect studies
+
+#### xfoil_comprehensive_outputs/
+
+- Sample subset of XFOIL analysis results including:
+  - Pressure distribution data
+  - Boundary layer parameters
+  - Performance polars at various Reynolds numbers
 
 ## Features
 
@@ -59,21 +116,53 @@ The code has successfully analyzed:
 - Required Python packages (numpy, pandas, matplotlib)
 - XFOIL data for NACA airfoils
 
-## Usage
+## Usage Guide
 
-1. Place experimental data in CSV format in the project root directory
-2. Run the appropriate Python scripts for specific analyses:
+### Setup and Dependencies
+
+```bash
+pip install numpy pandas matplotlib scipy
+```
+
+### Analysis Workflow
+
+1. **Data Preparation**
+
+   - Place your wind tunnel test data in CSV format in `supporting_CSVs/`
+   - Ensure data follows the format specified in `intial_LabData.csv`
+   - Wake profile measurements should match `input_velocity_profile.csv` structure
+
+2. **Running Analysis Scripts**
+
+   For wake analysis and drag calculations:
+
+   ```bash
+   python python_solvers/momentum_velocity_profile_solver.py
    ```
-   python momentum_velocity_profile_solver.py  # For drag calculations
-   python NACA_matching.py                    # For airfoil profile matching
+
+   For NACA airfoil identification:
+
+   ```bash
+   python python_solvers/NACA_matching.py
    ```
 
-## Data Processing Workflow
+   For aerodynamic coefficient analysis:
 
-1. Raw data is read from `intial_LabData.csv`
-2. Calculations and analysis are performed using various Python scripts
-3. Results are stored in `Final_Report2_Data.csv`
-4. Additional analysis outputs are saved in respective directories
+   ```bash
+   python python_solvers/linear_regression_solver.py
+   ```
+
+3. **Output Processing**
+   - Regression plots are automatically generated in `regression_plots/`
+   - XFOIL comparison data is saved in `xfoil_comprehensive_outputs/`
+   - Analysis results can be found in generated CSV files
+
+### Advanced Usage
+
+- Modify Reynolds number ranges in script parameters for different flow conditions
+- Adjust integration parameters in momentum solver for different wake profiles
+- Configure regression analysis parameters for different confidence levels
+- Customize NACA profile search range for airfoil matching
 
 ## Notes
 
