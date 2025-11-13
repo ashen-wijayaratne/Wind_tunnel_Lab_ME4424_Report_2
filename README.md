@@ -10,6 +10,7 @@ This repository contains a comprehensive suite of Python scripts designed for an
 │   ├── momentum_velocity_profile_solver.py # Wake analysis and momentum-based drag calculations
 │   ├── NACA_data_extractor.py           # XFOIL data parser for NACA airfoil databases
 │   └── NACA_matching.py                  # Automated NACA airfoil profile identification
+│   └── Data_Plotter.py              # Automated plot generation
 ├── supporting_CSVs/
 │   ├── input_velocity_profile.csv        # Velocity wake profile measurements
 │   └── intial_LabData.csv               # Raw wind tunnel experimental data
@@ -25,13 +26,13 @@ This repository contains a comprehensive suite of Python scripts designed for an
 #### linear_regression_solver.py
 
 - Performs advanced regression analysis on aerodynamic data
-- Determines aerodynamic center locations through moment coefficient analysis
+- Determines aerodynamic centre locations through moment coefficient analysis
+- Prints out tabulated summaries
 
 #### momentum_velocity_profile_solver.py
 
 - Implements the momentum integral equation for drag calculation
 - Processes wake velocity profiles using trapezoidal numerical integration
-
 
 #### NACA_data_extractor.py
 
@@ -43,12 +44,16 @@ This repository contains a comprehensive suite of Python scripts designed for an
 #### NACA_matching.py
 
 - Implements the Root Mean Square Error method for matching algorithms to identify unknown airfoil profiles.
-- Compares experimental data against comprehensive NACA database
+- Compares experimental data against a comprehensive NACA database
+
+#### Data_PLotter.py
+
+- This script generates various plots for drag, lift, and moment coefficients against angle of attack from experimental data. It includes functions for plotting 2D and 3D experiments, saving the plots, and printing summary tables.
 
 ### Data Files
 
 - **input_velocity_profile.csv**: Contains detailed wake velocity measurements at various angles of attack
-- **intial_LabData.csv**: Raw experimental measurements including:
+- **intial_LabData.csv**: Raw experimental measurements, including:
   - Force balance readings (lift, drag, moment)
   - Flow conditions (velocity, pressure, temperature)
   - Geometric parameters (angle of attack, configuration details)
