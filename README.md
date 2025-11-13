@@ -46,7 +46,7 @@ This repository contains a comprehensive suite of Python scripts designed for an
 - Implements the Root Mean Square Error method for matching algorithms to identify unknown airfoil profiles.
 - Compares experimental data against a comprehensive NACA database
 
-#### Data_PLotter.py
+#### Data_Plotter.py
 
 - This script generates various plots for drag, lift, and moment coefficients against angle of attack from experimental data. It includes functions for plotting 2D and 3D experiments, saving the plots, and printing summary tables.
 
